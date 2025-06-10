@@ -33,23 +33,12 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="relative hidden md:block">
+          <Image src="/hero.svg" alt="hero-svg" width={500} height={500} />
           <Image
-            src="/hero.svg"
-            alt="hero-svg"
-            width={500}
-            height={500}
-            className="opacity-0"
-          />
-          {/* <Image
             src="/hero-decor-1.svg"
             alt="hero-decor"
             width={500}
             height={500}
-            className="absolute top-0 -right-17 -z-50 object-contain"
-          /> */}
-          <Lottie
-            animationData={mobil}
-            loop={true}
             className="absolute top-0 -right-17 -z-50 object-contain"
           />
         </div>

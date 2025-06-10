@@ -11,9 +11,10 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Our Package", href: "/packages" },
-    { label: "My Package", href: "/my-packages" },
+    { label: "Our Package", href: "/paket" },
+    { label: "My Package", href: "/custom" },
     { label: "Modal Hiling", href: "/modal-hiling" },
+    { label: "Review", href: "/review" },
   ];
 
   // Close mobile menu when window is resized to desktop size
@@ -61,7 +62,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
-  const isAuthenticated = true; // Replace with actual authentication logic
+  const isAuthenticated = false; // Replace with actual authentication logic
 
   return (
     <header className="w-full bg-background border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
