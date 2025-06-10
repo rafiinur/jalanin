@@ -17,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { login } from "@/lib/auth";
 import Link from "next/link";
 
 const formSchema = z.object({
@@ -43,8 +42,8 @@ export function LoginForm() {
   }) => {
     setError(null);
     try {
-      await login(data.email, data.password);
-
+      // await login(data.email, data.password);
+      console.log("Login data:", data);
       router.push("/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login gagal. Coba lagi.");

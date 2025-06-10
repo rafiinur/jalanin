@@ -4,8 +4,6 @@ import React from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import mobil from "@/assets/lottie/mobil.json";
-import Lottie from "lottie-react";
 
 const HeroSection = () => {
   return (

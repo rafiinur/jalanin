@@ -31,8 +31,9 @@ const Navbar = () => {
 
   // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest("header")) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (isMenuOpen && target && !target.closest("header")) {
         setIsMenuOpen(false);
       }
     };
@@ -162,7 +163,7 @@ const Navbar = () => {
           <div className="py-4 border-t border-gray-200/50">
             <nav className="mb-4">
               <ul className="space-y-2" role="list">
-                {navItems.map((item, index) => (
+                {navItems.map((item) => (
                   <li key={item.href} role="listitem">
                     <Link
                       href={item.href}

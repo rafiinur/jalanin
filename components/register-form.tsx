@@ -18,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Checkbox } from "@/components/ui/checkbox";
-import { register } from "@/lib/auth";
 import Link from "next/link";
 
 const formSchema = z
@@ -64,13 +63,14 @@ export function RegisterForm() {
   const handleSubmitRegister = async (data: z.infer<typeof formSchema>) => {
     setError(null);
     try {
-      await register({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phoneNumber: data.phoneNumber,
-        password: data.password,
-      });
+      // await register({
+      //   firstName: data.firstName,
+      //   lastName: data.lastName,
+      //   email: data.email,
+      //   phoneNumber: data.phoneNumber,
+      //   password: data.password,
+      // });
+      console.log("Registration data:", data);
 
       router.push("/dashboard");
     } catch (err) {

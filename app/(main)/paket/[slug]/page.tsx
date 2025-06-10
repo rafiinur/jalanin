@@ -4,6 +4,7 @@ import { ChevronLeft, Calendar, Users, Plus, Minus, Heart } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const PackageDetails = () => {
   const [guests, setGuests] = useState(1);
@@ -18,7 +19,7 @@ const PackageDetails = () => {
 
       {/* Main Image Container */}
       <div className="relative shadow-2xl mb-56 rounded-2xl">
-        <img
+        <Image
           width={1470}
           height={500}
           src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
