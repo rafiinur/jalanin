@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
-import PackageCard from "../package-card";
+import SearchCard from "../search-card";
 
 const tripStyles = [
   "Water Activities",
@@ -22,93 +22,84 @@ const tripStyles = [
   "Food & Culinary Tours",
 ];
 
-const SearchFilter = () => {
+const SearchFilterSection = () => {
   return (
-    <div className="grid grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
       {/* Filters Sidebar */}
-      <div className="col-span-1 flex flex-col gap-4">
-        <Card className="p-6 border-neutral-200 shadow-md">
-          <CardHeader className="p-0">
-            <CardTitle>
-              <h3 className="font-semibold text-gray-900">
-                Start & Ending City
-              </h3>
+      <div className="lg:col-span-1 flex flex-col gap-6">
+        {/* Start & End City */}
+        <Card className="p-6 border border-neutral-200 shadow-lg">
+          <CardHeader className="p-0 mb-4">
+            <CardTitle className="text-gray-900 text-lg font-semibold">
+              Start & Ending City
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-0 space-y-6">
-            {/* Start & Ending City */}
-
-            <div className="space-y-3">
-              <div>
-                <label className="text-sm text-gray-600 mb-1 block">From</label>
-                <Input placeholder="Search city" className="h-9" />
-              </div>
-              <div>
-                <label className="text-sm text-gray-600 mb-1 block">To</label>
-                <Input placeholder="Search city" className="h-9" />
-              </div>
+          <CardContent className="p-0 space-y-4">
+            <div>
+              <Label className="text-sm text-gray-600 mb-1 block">From</Label>
+              <Input placeholder="Search city" className="h-9" />
+            </div>
+            <div>
+              <Label className="text-sm text-gray-600 mb-1 block">To</Label>
+              <Input placeholder="Search city" className="h-9" />
             </div>
           </CardContent>
         </Card>
-        <Card className="p-6 border-neutral-200 shadow-md">
-          <CardHeader className="p-0">
-            <CardTitle>
-              <h3 className="font-semibold text-gray-900">Price Range</h3>
+
+        {/* Price Range */}
+        <Card className="p-6 border border-neutral-200 shadow-lg">
+          <CardHeader className="p-0 mb-4">
+            <CardTitle className="text-gray-900 text-lg font-semibold">
+              Price Range
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-0 space-y-6">
-            {/* Start & Ending City */}
-
-            <div className="space-y-3">
-              <div>
-                <label className="text-sm text-gray-600 mb-1 block">
-                  Lowest
-                </label>
-                <Input placeholder="Search city" className="h-9" />
-              </div>
-              <div>
-                <label className="text-sm text-gray-600 mb-1 block">
-                  Highest
-                </label>
-                <Input placeholder="Search city" className="h-9" />
-              </div>
+          <CardContent className="p-0 space-y-4">
+            <div>
+              <Label className="text-sm text-gray-600 mb-1 block">Lowest</Label>
+              <Input placeholder="e.g. 1.000.000" className="h-9" />
+            </div>
+            <div>
+              <Label className="text-sm text-gray-600 mb-1 block">
+                Highest
+              </Label>
+              <Input placeholder="e.g. 10.000.000" className="h-9" />
             </div>
           </CardContent>
         </Card>
-        <Card className="p-6 border-neutral-200 shadow-md">
-          <CardHeader className="p-0">
-            <CardTitle>
-              <h3 className="font-semibold text-gray-900">Trip Style</h3>
+
+        {/* Trip Style */}
+        <Card className="p-6 border border-neutral-200 shadow-lg">
+          <CardHeader className="p-0 mb-4">
+            <CardTitle className="text-gray-900 text-lg font-semibold">
+              Trip Style
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-0">
-            {/* Start & Ending City */}
-            <div className="space-y-4">
-              {tripStyles.map((style) => (
-                <div key={style} className="flex items-end center gap-3">
-                  <Checkbox id={style.toLowerCase().replace(/\s/g, "-")} />
-                  <Label htmlFor={style.toLowerCase().replace(/\s/g, "-")}>
-                    {style}
-                  </Label>
-                </div>
-              ))}
-            </div>
+          <CardContent className="p-0 space-y-3">
+            {tripStyles.map((style) => (
+              <div key={style} className="flex items-center gap-3">
+                <Checkbox id={style.toLowerCase().replace(/\s/g, "-")} />
+                <Label htmlFor={style.toLowerCase().replace(/\s/g, "-")}>
+                  {style}
+                </Label>
+              </div>
+            ))}
           </CardContent>
-          <CardFooter className="p-0">
-            <Button variant={"link"}>Show More</Button>
+          <CardFooter className="mt-4 p-0">
+            <Button variant="link" className="text-blue-600 p-0">
+              Show More
+            </Button>
           </CardFooter>
         </Card>
       </div>
 
       {/* Package Cards */}
-      <div className="col-span-3 flex flex-col gap-4">
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
-        <PackageCard />
+      <div className="lg:col-span-3 flex flex-col gap-6 px-4">
+        <SearchCard />
+        <SearchCard />
+        <SearchCard />
       </div>
     </div>
   );
 };
 
-export default SearchFilter;
+export default SearchFilterSection;

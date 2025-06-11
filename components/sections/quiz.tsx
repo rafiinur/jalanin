@@ -5,7 +5,7 @@ import { Brain, Trophy, ArrowRight, Sparkles } from "lucide-react";
 
 const QuizSection = () => {
   return (
-    <section className="container mx-auto my-16 ">
+    <section className="container mx-auto px-4 py-16">
       <div className="max-w-7xl mx-auto">
         <Card
           className="relative overflow-hidden border-0 shadow-2xl rounded-3xl"

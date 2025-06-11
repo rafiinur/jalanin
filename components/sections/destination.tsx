@@ -2,28 +2,30 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import DestinationCard from "../destination-card";
 
-const Destination = () => {
+const DestinationSection = () => {
   return (
-    <section className="container mx-auto my-16">
+    <section className="container mx-auto px-4 py-16">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-semibold text-primary-600 mb-2">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
           Temukan Pengalaman Perjalanan Terbaik
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
           Jelajahi berbagai destinasi dan pengalaman menarik di seluruh
-          Indonesia dan dunia
+          Indonesia dan dunia.
         </p>
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
-        <DestinationCard />
-        <DestinationCard />
-        <DestinationCard />
+
+      {/* Grid Card */}
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <DestinationCard key={i} />
+        ))}
       </div>
 
-      {/* Load More Button */}
+      {/* Load More */}
       <div className="text-center">
-        <Link href={"/destinations"} className="inline-block">
+        <Link href="/destinations" className="inline-block">
           <Button
             variant="default"
             size="lg"
@@ -37,4 +39,4 @@ const Destination = () => {
   );
 };
 
-export default Destination;
+export default DestinationSection;

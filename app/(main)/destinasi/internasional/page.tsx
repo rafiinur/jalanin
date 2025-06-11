@@ -13,53 +13,57 @@ const InternationalDestinationPage = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative flex flex-col justify-center items-center text-center min-h-screen bg-gradient-to-b from-blue-50 to-white">
-        {/* Decorative Images */}
+      <div className="relative bg-white py-16 sm:py-20 lg:py-24 text-center overflow-hidden">
+        {/* Ornamen Megamendung */}
         <Image
           src="/megamendung.svg"
           alt="megamendung"
-          width={296}
-          height={197}
-          className="absolute top-4 left-4 object-cover w-20 h-auto rotate-180 sm:w-32 md:w-40 lg:w-48 xl:w-56 opacity-80"
+          width={100}
+          height={100}
+          className="absolute top-8 left-8 w-20 sm:w-24 rotate-180 opacity-90"
         />
         <Image
           src="/megamendung.svg"
           alt="megamendung"
-          width={296}
-          height={197}
-          className="absolute bottom-4 right-4 object-cover w-20 h-auto sm:w-32 md:w-40 lg:w-48 xl:w-56 opacity-80"
+          width={100}
+          height={100}
+          className="absolute bottom-8 right-8 w-20 sm:w-24 opacity-90"
         />
 
-        {/* Content Container */}
-        <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          {/* Text Content */}
-          <div className="mb-8 lg:mb-12">
-            <h2 className="text-5xl font-semibold text-secondary mb-2 leading-tight">
-              Destinasi Internasional
-            </h2>
-            <span className="text-2xl text-gray-600 max-w-4xl mx-auto block leading-relaxed">
-              Pilihan Terbaik untuk Anda Menjelajahi Dunia
-            </span>
-          </div>
+        {/* Ornamen Awan (Opsional, bisa ditambahin komponen awan SVG) */}
+        <div className="absolute inset-0 flex flex-wrap justify-around items-center pointer-events-none opacity-20">
+          <div className="w-16 h-8 bg-gray-200 rounded-full" />
+          <div className="w-24 h-10 bg-gray-100 rounded-full" />
+          <div className="w-20 h-8 bg-gray-200 rounded-full" />
+          {/* Tambah SVG awan custom kalau mau lebih estetik */}
+        </div>
 
-          {/* Main Image */}
-          <div className="w-full max-w-6xl mx-auto">
+        {/* Konten Utama */}
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-secondary mb-4">
+            Destinasi Internasional 🌍
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-10">
+            Pilihan Terbaik untuk Anda Menjelajahi Dunia
+          </p>
+
+          <div className="mx-auto max-w-5xl">
             <Image
               src="/destinasi-1.svg"
-              width={1360}
-              height={644}
-              alt="destinasi"
-              className="w-full h-auto object-cover"
+              alt="destinasi internasional"
+              width={1000}
+              height={500}
+              className="w-full h-auto object-contain"
               priority
             />
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto flex flex-col my-20">
-        <div className="relative py-28">
-          <div className="absolute right-1/4 -z-20 size-80 bg-secondary rounded-full blur-[150px]"></div>
-          <div className="mb-10 px-20">
+      <div className="container mx-auto flex flex-col">
+        <div className="relative mb-32">
+          <div className="absolute right-1/4 -z-20 size-6  0 bg-secondary/80 rounded-full blur-[150px]"></div>
+          <div className="px-20">
             <h2 className="text-3xl font-semibold text-secondary mb-2">
               Rekomendasi Negara
             </h2>
@@ -70,7 +74,7 @@ const InternationalDestinationPage = () => {
           </div>
 
           <Carousel className="max-w-5xl">
-            <CarouselContent className="py-4 px-20">
+            <CarouselContent className="py-12 px-20">
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <Image
                   src={
@@ -105,8 +109,8 @@ const InternationalDestinationPage = () => {
                 />
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-secondary shadow-lg border-0" />
-            <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-secondary shadow-lg border-0" />
+            <CarouselPrevious className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-secondary shadow-lg border-0" />
+            <CarouselNext className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-secondary shadow-lg border-0" />
           </Carousel>
 
           <div className="absolute right-0 top-0 bottom-0 -z-10">
@@ -115,12 +119,12 @@ const InternationalDestinationPage = () => {
               width={396}
               height={500}
               alt="destinasi"
-              className="w-96 h-[500px] object-cover rounded-t-full"
+              className="w-96 h-[500px] object-cover rounded-t-full rounded-b-2xl"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-12 mb-32">
           <SearchBar />
           <SearchFilterSection />
         </div>

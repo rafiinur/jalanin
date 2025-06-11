@@ -25,9 +25,9 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="container mx-auto my-16">
+    <section className="container mx-auto px-4 py-16">
       <div
-        className="relative overflow-hidden rounded-3xl shadow-2xl"
+        className="relative overflow-hidden lg:rounded-3xl shadow-2xl"
         style={{
           background:
             "linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 50%, var(--color-primary-700) 100%)",
