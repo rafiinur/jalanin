@@ -138,8 +138,16 @@ export default function ModalHiling() {
 
           {/* Hasil Simulasi */}
           {hasil && sudahDiklik && (
-            <div className="bg-[#FFB87733] p-6 rounded-xl mt-8 shadow-inner w-full max-w-lg min-h-[180px] mb-8">
-              <p className="mb-1 font-semibold text-neutral-800">Hasil Simulasi</p>
+            <div
+              className={`p-6 rounded-xl mt-8 shadow-inner w-full max-w-lg min-h-[180px] mb-8
+                ${parseInt(tabunganSaatIni) >= daftarPaket[paket].harga
+                  ? "bg-green-100 border border-green-300"
+                  : "bg-[#FFB87733]"}
+              `}
+            >
+              <p className={`mb-1 font-semibold ${parseInt(tabunganSaatIni) >= daftarPaket[paket].harga ? "text-green-700" : "text-neutral-800"}`}>
+                Hasil Simulasi
+              </p>
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-neutral-700">Target Paket:</span>
                 <span className="font-medium">{daftarPaket[paket].nama}</span>
@@ -150,28 +158,47 @@ export default function ModalHiling() {
               </div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-neutral-700">Sisa yang dibutuhkan:</span>
-                <span>Rp {hasil.sisa.toLocaleString()}</span>
+                <span>
+                  {parseInt(tabunganSaatIni) >= daftarPaket[paket].harga
+                    ? "Rp 0"
+                    : `Rp ${hasil.sisa.toLocaleString()}`}
+                </span>
               </div>
               <div className="flex justify-between text-sm mb-3">
                 <span className="text-neutral-700">Waktu yang dibutuhkan:</span>
                 <span>
-                  {hasil.waktu >= 12
-                    ? `${Math.floor(hasil.waktu / 12)} tahun ${hasil.waktu % 12} bulan`
-                    : `${hasil.waktu} bulan`}
+                  {parseInt(tabunganSaatIni) >= daftarPaket[paket].harga
+                    ? "-"
+                    : hasil.waktu >= 12
+                      ? `${Math.floor(hasil.waktu / 12)} tahun ${hasil.waktu % 12} bulan`
+                      : `${hasil.waktu} bulan`}
                 </span>
               </div>
               <div className="mt-2">
-                <label className="text-xs text-neutral-700">Progress: {(parseInt(tabunganSaatIni) / daftarPaket[paket].harga * 100).toFixed(1)}%</label>
+                <label className="text-xs text-neutral-700">
+                  Progress: {Math.min((parseInt(tabunganSaatIni) / daftarPaket[paket].harga) * 100, 100).toFixed(1)}%
+                </label>
                 <div className="w-full h-2 bg-[#FFE3CC] rounded-full mt-1">
                   <div
-                    className="h-2 rounded-full"
+                    className="h-2 rounded-full transition-all duration-300"
                     style={{
-                      width: `${(parseInt(tabunganSaatIni) / daftarPaket[paket].harga) * 100}%`,
-                      background: "linear-gradient(90deg, #FFB877 0%, #FF914D 100%)"
+                      width: `${Math.min((parseInt(tabunganSaatIni) / daftarPaket[paket].harga) * 100, 100)}%`,
+                      background: parseInt(tabunganSaatIni) >= daftarPaket[paket].harga
+                        ? "linear-gradient(90deg, #4ade80 0%, #22c55e 100%)"
+                        : "linear-gradient(90deg, #FFB877 0%, #FF914D 100%)"
                     }}
                   />
                 </div>
               </div>
+              {parseInt(tabunganSaatIni) >= daftarPaket[paket].harga && (
+                <div className="mt-4 text-green-700 font-semibold text-sm flex items-center gap-2">
+                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#4ade80"/>
+                    <path d="M8 12l2.5 2.5L16 9" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Target tabungan sudah tercapai!
+                </div>
+              )}
             </div>
           )}
         </div>
