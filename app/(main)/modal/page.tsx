@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-// Tambah 1 paket baru
 const daftarPaket = {
   bali: {
     nama: "7 Days Bali Epic Experience",
@@ -62,17 +61,13 @@ export default function ModalHiling() {
       </h1>
 
       <section className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto mb-16">
-        {/* Kalkulator */}
         <div className="bg-white md:px-16 px-6 py-12 rounded-2xl shadow-lg border border-orange-100 w-full min-h-[820px] max-h-[820px] flex flex-col items-center text-left">
-          {/* Judul & icon DI DALAM card */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#FFB877]">
-              {/* Kalkulator SVG */}
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><rect x="6" y="4" width="12" height="16" rx="2" fill="#FFB877"/><rect x="8" y="6" width="8" height="3" rx="1" fill="#fff"/><rect x="8" y="10" width="3" height="3" rx="1" fill="#fff"/><rect x="13" y="10" width="3" height="3" rx="1" fill="#fff"/><rect x="8" y="15" width="3" height="3" rx="1" fill="#fff"/><rect x="13" y="15" width="3" height="3" rx="1" fill="#fff"/></svg>
             </div>
             <h2 className="font-bold text-lg text-[#FF914D]">Kalkulator Tabungan</h2>
           </div>
-          {/* Form dan hasil simulasi */}
           <div className="space-y-6 w-full max-w-lg mx-auto">
             <div>
               <label className="block mb-1 text-sm font-bold text-neutral-700 text-left w-full">
@@ -104,7 +99,6 @@ export default function ModalHiling() {
                   </option>
                 ))}
               </select>
-              {/* Icon panah dropdown */}
               <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#FF914D]">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
                   <path d="M7 10l5 5 5-5" stroke="#FF914D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -135,8 +129,6 @@ export default function ModalHiling() {
               Hitung Simulasi
             </button>
           </div>
-
-          {/* Hasil Simulasi */}
           {hasil && sudahDiklik && (
             <div
               className={`p-6 rounded-xl mt-8 shadow-inner w-full max-w-lg min-h-[180px] mb-8
@@ -203,17 +195,13 @@ export default function ModalHiling() {
           )}
         </div>
 
-        {/* Paket Tersedia */}
         <div className="bg-white md:px-16 px-6 py-12 rounded-2xl shadow-lg border border-orange-100 w-full min-h-[820px] max-h-[820px] flex flex-col items-center text-left">
-          {/* Judul & icon DI DALAM card */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#FFB877]">
-              {/* Paket SVG */}
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><path d="M6 10l6-4 6 4v6a2 2 0 01-2 2H8a2 2 0 01-2-2v-6z" fill="#FFB877"/><path d="M6 10l6 4 6-4" stroke="#FF914D" strokeWidth="1.5" strokeLinejoin="round"/></svg>
             </div>
             <h2 className="font-bold text-lg text-[#FF914D]">Paket Tersedia</h2>
           </div>
-          {/* Area scroll hanya untuk daftar paket */}
           <div className="flex-1 w-full overflow-y-auto" style={{ maxHeight: 700 }}>
             <div className="flex flex-col gap-5 w-full">
               {Object.entries(daftarPaket).map(([key, p]) => (
@@ -239,31 +227,25 @@ export default function ModalHiling() {
                     </div>
                     <div className="flex flex-wrap items-left justify-left gap-2 text-xs text-gray-600 mb-1">
                       <span className="flex items-left gap-1">
-                        {/* Time SVG */}
                         <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#FF914D" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#FF914D" strokeWidth="2" strokeLinecap="round"/></svg>
                         7 days
                       </span>
                       <span className="flex items-left gap-1">
-                        {/* Group SVG */}
                         <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><circle cx="8" cy="10" r="3" stroke="#FF914D" strokeWidth="2"/><circle cx="16" cy="10" r="3" stroke="#FF914D" strokeWidth="2"/><path d="M2 20v-1a4 4 0 014-4h4a4 4 0 014 4v1" stroke="#FF914D" strokeWidth="2"/><path d="M14 20v-1a4 4 0 014-4h0a4 4 0 014 4v1" stroke="#FF914D" strokeWidth="2"/></svg>
                         4-10 Group
                       </span>
                       <span className="flex items-center gap-1">
-                        {/* Paw print dengan garis miring */}
                         <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
-                          {/* Paw print */}
                           <ellipse cx="16" cy="23" rx="6" ry="5" fill="#FF914D"/>
                           <ellipse cx="8.5" cy="15" rx="2" ry="2.5" fill="#FF914D"/>
                           <ellipse cx="23.5" cy="15" rx="2" ry="2.5" fill="#FF914D"/>
                           <ellipse cx="12" cy="10" rx="1.5" ry="2" fill="#FF914D"/>
                           <ellipse cx="20" cy="10" rx="1.5" ry="2" fill="#FF914D"/>
-                          {/* Garis miring */}
                           <line x1="5" y1="5" x2="27" y2="27" stroke="#7C2D12" strokeWidth="3" strokeLinecap="round"/>
                         </svg>
                         No pet
                       </span>
                       <span className="flex items-center gap-1">
-                        {/* Guide SVG */}
                         <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" stroke="#FF914D" strokeWidth="2"/><path d="M8 12h8M12 8v8" stroke="#FF914D" strokeWidth="2" strokeLinecap="round"/></svg>
                         Fully guided
                       </span>
@@ -280,13 +262,11 @@ export default function ModalHiling() {
         </div>
       </section>
 
-      {/* Kenapa Modal Hiling */}
       <section className="bg-white max-w-6xl mx-auto px-10 py-20 min-h-[420px] rounded-2xl text-center shadow-lg border border-orange-100 mb-10">
         <h2 className="text-[#FF914D] font-extrabold text-2xl md:text-3xl mb-10 tracking-tight">Kenapa Pilih Modal Hiling??</h2>
         <div className="flex flex-col md:flex-row justify-center gap-8">
           <div className="bg-[#FFB87733] p-8 rounded-xl flex-1 mx-2 flex flex-col items-center transition-all duration-200 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#FFB877] mb-4">
-              {/* Simulasi Akurat Icon */}
               <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><rect x="6" y="4" width="12" height="16" rx="2" fill="#FFB877"/><rect x="8" y="6" width="8" height="3" rx="1" fill="#fff"/><rect x="8" y="10" width="3" height="3" rx="1" fill="#fff"/><rect x="13" y="10" width="3" height="3" rx="1" fill="#fff"/><rect x="8" y="15" width="3" height="3" rx="1" fill="#fff"/><rect x="13" y="15" width="3" height="3" rx="1" fill="#fff"/></svg>
             </div>
             <h3 className="font-bold text-lg mb-2 text-[#FF914D]">Simulasi Akurat</h3>
@@ -294,7 +274,6 @@ export default function ModalHiling() {
           </div>
           <div className="bg-[#FFB87733] p-8 rounded-xl flex-1 mx-2 flex flex-col items-center transition-all duration-200 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#FFB877] mb-4">
-              {/* Perencanaan Mudah Icon */}
               <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><path d="M8 12h8M12 8v8" stroke="#FF914D" strokeWidth="2" strokeLinecap="round"/></svg>
             </div>
             <h3 className="font-bold text-lg mb-2 text-[#FF914D]">Perencanaan Mudah</h3>
@@ -302,7 +281,6 @@ export default function ModalHiling() {
           </div>
           <div className="bg-[#FFB87733] p-8 rounded-xl flex-1 mx-2 flex flex-col items-center transition-all duration-200 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#FFB877] mb-4">
-              {/* Target Jelas Icon */}
               <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><circle cx="12" cy="12" r="6" stroke="#FF914D" strokeWidth="2"/><circle cx="12" cy="12" r="2" fill="#FF914D"/></svg>
             </div>
             <h3 className="font-bold text-lg mb-2 text-[#FF914D]">Target Jelas</h3>
