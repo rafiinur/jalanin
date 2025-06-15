@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import { AppProvider } from "@/providers/AppProvider";
+import { cn } from "@/lib/utils";
 
 const montserrat = Montserrat({
   variable: "--font-mont",
@@ -10,7 +12,7 @@ const montserrat = Montserrat({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400"], // You can specify other weights as needed
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -24,11 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${poppins.variable} font-mont antialiased bg-[#fefefe]`}
+        className={cn(
+          montserrat.variable,
+          poppins.variable,
+          "antialiased font-mont"
+        )}
       >
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import Link from "next/link";
+import { login } from "@/actions";
 
 const formSchema = z.object({
   email: z.string().email("Email tidak valid").nonempty("Email harus diisi"),
@@ -36,15 +37,17 @@ export function LoginForm() {
     },
   });
 
-  const handleSubmitLogin = async (data: {
+  const handleSubmitLogin = async ({
+    email,
+    password,
+  }: {
     email: string;
     password: string;
   }) => {
     setError(null);
     try {
-      // await login(data.email, data.password);
-      console.log("Login data:", data);
-      router.push("/dashboard");
+      await login(email, password);
+      router.push("/admin/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login gagal. Coba lagi.");
     }

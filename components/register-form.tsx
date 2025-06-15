@@ -97,7 +97,6 @@ export function RegisterForm() {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nama Depan</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
@@ -115,7 +114,6 @@ export function RegisterForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nama Belakang</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
@@ -136,7 +134,6 @@ export function RegisterForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
@@ -155,7 +152,6 @@ export function RegisterForm() {
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nomor Telepon</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
@@ -177,7 +173,6 @@ export function RegisterForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
@@ -198,7 +193,6 @@ export function RegisterForm() {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Konfirmasi Password</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-full h-12 border-primary ps-6"
