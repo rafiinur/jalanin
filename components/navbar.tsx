@@ -5,7 +5,7 @@ import { Menu, X, User, LogIn } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { ThemeToggle } from "./theme-toggle";
+// import { ThemeToggle } from "./theme-toggle";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,7 +121,7 @@ const Navbar = () => {
 						</div>
 					) : (
 						<div className="items-center hidden gap-4 md:flex">
-							<ThemeToggle />
+							{/* <ThemeToggle /> */}
 							<Link
 								href="/login"
 								className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 border-0 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-50"
