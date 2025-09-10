@@ -1,52 +1,60 @@
-import { protectedRoutes, publicRoutes } from "@/constants/routes";
-import { createServerClient } from "@supabase/ssr";
+// import { getUserById } from "@/libs/user";
+// import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function updateSession(request: NextRequest) {
-  const response = NextResponse.next({ request });
+	const response = NextResponse.next({ request });
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll: () => request.cookies.getAll(),
-        setAll: (cookiesToSet) => {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            request.cookies.set(name, value);
-            response.cookies.set(name, value, options);
-          });
-        },
-      },
-    }
-  );
+	// const supabase = createServerClient(
+	// 	process.env.NEXT_PUBLIC_SUPABASE_URL!,
+	// 	process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+	// 	{
+	// 		cookies: {
+	// 			getAll: () => request.cookies.getAll(),
+	// 			setAll: (cookiesToSet) => {
+	// 				cookiesToSet.forEach(({ name, value, options }) => {
+	// 					request.cookies.set(name, value);
+	// 					response.cookies.set(name, value, options);
+	// 				});
+	// 			},
+	// 		},
+	// 	}
+	// );
 
-  // Get current user
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+	// Ambil role dari cookies
+	// const {
+	//   data: { session },
+	// } = await supabase.auth.getSession();
+	// const userId = session?.user.id;
+	// const user = await getUserById(userId);
+	// console.log(user);
+	// const url = request.nextUrl.pathname;
 
-  const pathname = request.nextUrl.pathname;
-  const isProtected = protectedRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
-  const isPublic = publicRoutes.some((route) => pathname.startsWith(route));
+	// Role-based route protection untuk /admin
+	// if (url.startsWith("/admin")) {
+	//   if (role !== "admin") {
+	//     return NextResponse.redirect(new URL("/", request.url));
+	//   }
+	// }
 
-  const loginUrl = new URL("/login", request.url);
-  const dashboardUrl = new URL("/dashboard", request.url);
+	// Jika role admin, blokir akses ke public route
+	// const publicRoutes = [
+	//   "/",
+	//   "/main",
+	//   "/auth",
+	//   "/login",
+	//   "/register",
+	//   "/forgot-password",
+	// ];
+	// if (role === "admin") {
+	//   if (
+	//     publicRoutes.some((route) => url === route || url.startsWith(route + "/"))
+	//   ) {
+	//     return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+	//   }
+	// }
 
-  // 🔒 Redirect rules
-  if (!user && isProtected) {
-    return NextResponse.redirect(loginUrl);
-  }
+	// Anda bisa tambahkan proteksi role lain di sini
 
-  if (user && isPublic) {
-    return NextResponse.redirect(dashboardUrl);
-  }
-
-  if (user && pathname === "/") {
-    return NextResponse.redirect(dashboardUrl);
-  }
-
-  return response;
+	return response;
 }

@@ -69,7 +69,7 @@ const ForgotPasswordForm = () => {
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
-                        className="rounded-full h-12 border-primary ps-6"
+                        className="h-12 rounded-full border-primary ps-6"
                         placeholder="Masukkan email"
                         {...field}
                       />

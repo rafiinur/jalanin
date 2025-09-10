@@ -76,18 +76,11 @@ export default function TestimonialCarousel() {
       <div className="absolute top-0 left-0 w-20 h-20 text-primary/10 -rotate-12">
         <Quote size={80} strokeWidth={1.5} className="fill-primary/5" />
       </div>
-      <div className="absolute bottom-0 right-0 w-20 h-20 text-primary/10 rotate-180">
+      <div className="absolute bottom-0 right-0 w-20 h-20 rotate-180 text-primary/10">
         <Quote size={80} strokeWidth={1.5} className="fill-primary/5" />
       </div>
 
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-4">Apa Kata Mereka</h2>
-          <p className="text-muted-foreground">
-            Pengalaman pelanggan yang telah menggunakan layanan Jalanin
-          </p>
-        </div>
-
+      <div className="container px-4 mx-auto">
         <div className="testimonial-carousel-wrapper">
           <Swiper
             effect="coverflow"
@@ -144,13 +137,13 @@ export default function TestimonialCarousel() {
                       <Image
                         src={testimonial.avatar}
                         alt={testimonial.name}
-                        className="rounded-full object-cover border-4 border-primary"
+                        className="object-cover border-4 rounded-full border-primary"
                         width={isActive ? 96 : 64}
                         height={isActive ? 96 : 64}
                         unoptimized
                       />
                       {isActive && (
-                        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-2 py-1 shadow-md">
+                        <div className="absolute px-2 py-1 transform -translate-x-1/2 bg-white rounded-full shadow-md -bottom-2 left-1/2">
                           <div className="flex">
                             {renderRating(testimonial.rating)}
                           </div>
@@ -166,20 +159,20 @@ export default function TestimonialCarousel() {
                       }`}
                     >
                       <blockquote className="relative mb-4">
-                        <p className="text-sm md:text-base italic">
+                        <p className="text-sm italic md:text-base">
                           &ldquo;{testimonial.text}&rdquo;
                         </p>
                       </blockquote>
 
                       <div className="mt-4">
                         <h4 className="font-semibold">{testimonial.name}</h4>
-                        <p className="text-xs text-muted-foreground mt-1">
+                        <p className="mt-1 text-xs text-muted-foreground">
                           {testimonial.package}
                         </p>
                       </div>
 
                       {!isActive && (
-                        <div className="mt-2 flex justify-center">
+                        <div className="flex justify-center mt-2">
                           <div className="flex">
                             {renderRating(testimonial.rating)}
                           </div>

@@ -5,6 +5,7 @@ import { usePackages } from "@/hooks/use-packages";
 
 const TravelPackageTableWrapper = () => {
   const { data, isLoading, error } = usePackages();
+  console.log(data);
 
   return (
     <TravelPackagesTable

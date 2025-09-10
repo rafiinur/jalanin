@@ -8,6 +8,8 @@ import {
   MapPinned,
   MessagesSquare,
   Package2,
+  Group,
+  Sunrise,
   // Settings,
   // Users,
   // Youtube,
@@ -38,6 +40,11 @@ const data = {
       icon: LayoutDashboard,
     },
     {
+      title: "Group",
+      url: "/admin/group",
+      icon: Group,
+    },
+    {
       title: "Paket Travel",
       url: "/admin/paket-travel",
       icon: Package2,
@@ -56,6 +63,11 @@ const data = {
       title: "Destinasi",
       url: "/admin/destinasi",
       icon: MapPinned,
+    },
+    {
+      title: "Itenerary",
+      url: "/admin/itenerary",
+      icon: Sunrise,
     },
     {
       title: "Review",
@@ -83,12 +95,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                <div className="flex items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground aspect-square size-8">
                   <Command className="size-4" />
                 </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                <div className="grid flex-1 text-sm leading-tight text-left">
+                  <span className="font-medium truncate">Acme Inc</span>
+                  <span className="text-xs truncate">Enterprise</span>
                 </div>
               </a>
             </SidebarMenuButton>

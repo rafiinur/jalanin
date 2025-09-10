@@ -7,19 +7,19 @@ const ReviewPage = () => {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col items-center py-32">
-        <h2 className="section-title mb-6 max-w-2xl text-center">
+        <h2 className="max-w-2xl mb-6 text-center section-title">
           Ceritakan Pengalamanmu bersama kami
         </h2>
-        <p className="text-lg text-center text-neutral-700 mb-4">
+        <p className="mb-4 text-lg text-center text-neutral-700">
           Bagikan kisah seru liburanmu dan jadi inspirasi bagi traveler lainnya.
         </p>
         <ReviewForm />
       </div>
       <div className="flex flex-col items-center">
-        <h2 className="section-title mb-6 max-w-2xl text-center">
+        <h2 className="max-w-2xl mb-6 text-center section-title">
           Apa Kata Mereka?
         </h2>
-        <p className="text-lg text-center text-neutral-700 mb-4">
+        <p className="mb-4 text-lg text-center text-neutral-700">
           Dengar langsung dari mereka yang sudah merasakan serunya liburan
           bersama kami.
         </p>

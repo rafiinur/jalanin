@@ -73,7 +73,7 @@ export function LoginForm() {
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
-                        className="rounded-full h-12 border-primary ps-6"
+                        className="h-12 rounded-full border-primary ps-6"
                         placeholder="Masukkan email"
                         {...field}
                       />
@@ -93,7 +93,7 @@ export function LoginForm() {
                     <FormLabel>Password</FormLabel>
                     <FormControl>
                       <Input
-                        className="rounded-full h-12 border-primary ps-6"
+                        className="h-12 rounded-full border-primary ps-6"
                         type="password"
                         placeholder="Masukkan password"
                         {...field}
@@ -121,7 +121,7 @@ export function LoginForm() {
             >
               {form.formState.isSubmitting ? "Loading..." : "Login"}
             </Button>
-            <p className="text-center text-sm text-muted-foreground">
+            <p className="text-sm text-center text-muted-foreground">
               Belum punya akun?{" "}
               <Link href="/register" className="text-primary">
                 Daftar

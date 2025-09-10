@@ -1,5 +1,5 @@
-export const protectedRoutes = [];
-export const publicRoutes = [];
+export const protectedRoutes = ["profile"];
+
 export const adminRoutes = [
   "/admin/dashboard",
   "/admin/destinasi",
@@ -7,4 +7,6 @@ export const adminRoutes = [
   "/admin/pengguna",
   "/admin/review",
   "/admin/youtube",
+  "/admin/group",
+  "/admin/itenerary",
 ];

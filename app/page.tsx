@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import QuizSection from "@/components/sections/quiz";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Navbar />

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllDestinations } from "@/lib/destinations";
+import { getAllDestinations } from "@/libs/destinations";
 
 export const useDestinations = () =>
-  useQuery({
-    queryKey: ["destinations"],
-    queryFn: getAllDestinations,
-  });
+	useQuery({
+		queryKey: ["destinations"],
+		queryFn: getAllDestinations,
+	});

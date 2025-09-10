@@ -3,6 +3,10 @@
 import type { TravelPackage } from "@/types/travel-package";
 import { ColumnDef } from "@tanstack/react-table";
 import { SortingButton } from "@/components/sorting-button";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import TravelPackageEditDialog from "./travel-edit-dialog";
+import TravelPackageDeleteDialog from "./travel-delete-dialog";
 
 export const travelPackageColumns: ColumnDef<TravelPackage>[] = [
   {
@@ -45,18 +49,40 @@ export const travelPackageColumns: ColumnDef<TravelPackage>[] = [
       new Date(row.getValue("end_date")).toLocaleDateString("id-ID"),
   },
   {
+    accessorKey: "image_url",
+    header: "Gambar",
+    cell: ({ row }) => {
+      const imageUrl = row.getValue("image_url") as string;
+      return imageUrl ? (
+        <Image
+          src={imageUrl}
+          alt="Thumbnail"
+          width={80}
+          height={60}
+          className="rounded-md object-cover"
+        />
+      ) : (
+        <Badge variant="outline">Tidak ada gambar</Badge>
+      );
+    },
+  },
+  {
     id: "actions",
     header: "Aksi",
     cell: ({ row }) => {
-      const packages = row.original;
-      const id = packages.id;
+      const travelPackage = row.original;
+      const id = travelPackage.id;
+      const name = travelPackage.name;
 
       if (!id) return null;
 
       return (
         <div className="flex items-center gap-1.5">
-          {/* <DestinationEditDialog destination={destination} />
-          <DestinationDeleteDialog destinationId={id} destinationName={name} /> */}
+          <TravelPackageEditDialog travelPackage={travelPackage} />
+          <TravelPackageDeleteDialog
+            packageId={id}
+            packageName={name}
+          />
         </div>
       );
     },

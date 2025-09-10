@@ -2,14 +2,20 @@ import { z } from "zod";
 
 export const travelPackageSchema = z.object({
   name: z.string().min(1),
-  description: z.string().min(1),
-  total_cost: z.coerce.number(),
-  duration_days: z.coerce.number(),
+  description: z.string(),
+  total_cost: z.number(),
+  duration_days: z.number().min(1),
   start_date: z.string(),
   end_date: z.string(),
-  image_url: z.string().url(),
-  created_by: z.string().uuid(),
-  group_id: z.string().uuid(),
+  image_url: z.instanceof(File),
+  group_id: z.string(),
+  map_url: z.string().url(),
+  category_ids: z.array(z.string()),
+  destination_ids: z.array(z.string()),
+  packing_items: z.array(z.string()),
+  includes: z.array(z.string()),
+  excludes: z.array(z.string()),
+  highlights: z.array(z.string()),
 });
 
 export const destinationSchema = z.object({
@@ -27,4 +33,10 @@ export const reviewSchema = z.object({
   rating: z.coerce.number().min(1, { message: "Rating harus diisi." }),
   comment: z.string().min(1, { message: "Komentar harus diisi." }),
   user_id: z.string().uuid(),
+});
+
+export const userSchema = z.object({
+  full_name: z.string().min(1, { message: "Nama wajib diisi." }),
+  email: z.string().email({ message: "Email tidak valid." }),
+  password: z.string().min(8, { message: "Password minimal 8 karakter." }),
 });

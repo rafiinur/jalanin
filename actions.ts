@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "./utils/supabase/server";
+import { cookies } from "next/headers";
 
 export const login = async (email: string, password: string) => {
   try {
@@ -19,6 +20,7 @@ export const login = async (email: string, password: string) => {
 
     const data = await res.json();
 
+    // Periksa apakah respons berhasil
     if (!res.ok) {
       throw new Error(data?.message || "Login gagal.");
     }
@@ -36,7 +38,7 @@ export const login = async (email: string, password: string) => {
       refresh_token,
     });
 
-    return { success: true };
+    return { success: true, user: data.user };
   } catch (err) {
     console.error("Login error:", err);
     return {
@@ -47,7 +49,11 @@ export const login = async (email: string, password: string) => {
   }
 };
 
-export const register = async (email: string, password: string) => {
+export const register = async (
+  email: string,
+  password: string,
+  full_name: string
+) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/auth-handler/register`,
@@ -55,14 +61,16 @@ export const register = async (email: string, password: string) => {
         method: "POST",
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({
+          email,
+          password,
+          full_name,
+        }),
         cache: "no-store",
       }
     );
 
-    // Check if response is ok
     const data = await res.json();
 
     if (!res.ok) {
@@ -93,6 +101,10 @@ export const logout = async () => {
 
     // ❌ Clear Supabase session
     await supabase.auth.signOut();
+
+    // Hapus cookie role
+    const cookieStore = await cookies();
+    cookieStore.delete("role");
 
     return { success: true };
   } catch (error) {

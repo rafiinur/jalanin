@@ -1,8 +1,8 @@
-import { getAllReviews } from "@/lib/reviews";
+import { getAllReviews } from "@/libs/reviews";
 import { useQuery } from "@tanstack/react-query";
 
 export const useDestinations = () =>
-  useQuery({
-    queryKey: ["reviews"],
-    queryFn: getAllReviews,
-  });
+	useQuery({
+		queryKey: ["reviews"],
+		queryFn: getAllReviews,
+	});
