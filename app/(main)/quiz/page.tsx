@@ -1,5 +1,7 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const pertanyaan = [
@@ -441,20 +443,24 @@ export default function QuizPage() {
 								))}
 							</div>
 							<div className="flex flex-col justify-end gap-4 mt-10 md:flex-row">
-								<button
-									onClick={() => {
-										setShowResult(false);
-										setStep(0);
-										setJawaban(null);
-										setJawabanAkhir([]);
-									}}
-									className="px-6 py-2 rounded-full bg-white border border-[#FFB877] text-[#FF914D] font-bold shadow hover:bg-[#FFF6EE] transition-all"
-								>
-									Back to Quiz
-								</button>
-								<button className="px-6 py-2 rounded-full bg-gradient-to-r from-[#FFB877] to-[#FF914D] text-white font-bold shadow hover:scale-105 transition-all">
-									CUSTOM PACKAGE
-								</button>
+								<Link href={"/quiz"} className="w-full md:w-auto">
+									<Button
+										onClick={() => {
+											setShowResult(false);
+											setStep(0);
+											setJawaban(null);
+											setJawabanAkhir([]);
+										}}
+										className="px-6 py-2 rounded-full bg-white border border-[#FFB877] text-[#FF914D] font-bold shadow hover:bg-[#FFF6EE] transition-all"
+									>
+										Back to Quiz
+									</Button>
+								</Link>
+								<Link href="/paket" className="w-full md:w-auto">
+									<Button className="px-6 py-2 rounded-full bg-gradient-to-r from-[#FFB877] to-[#FF914D] text-white font-bold shadow hover:scale-105 transition-all">
+										CUSTOM PACKAGE
+									</Button>
+								</Link>
 							</div>
 						</section>
 					)}
